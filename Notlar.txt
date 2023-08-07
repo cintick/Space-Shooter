@@ -1,0 +1,3 @@
+float değer yazarken unutma her zaman sonuna X.Xf; olacak şekilde sonuna f konacak.
+
+public ya da private yapılan, inspector kısmından değiştirilen variable'lar private olduğu halde inspector'da gözükebilir. Bunu yapmak için üstüne ( ya da başına da olabilir onu deneyeyim ) [SerializeField] giriyoruz. Böyle olduğunda diğer scriptler vs o değişkene dokunamıyor ( yani private ) ama inspector'dan modifiye edebiliyoruz.
