@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(laserPrefab, new Vector3(transform.position.x, transform.position.y), transform.rotation);
+            Instantiate(laserPrefab, new Vector3(transform.position.x, (transform.position.y + 0.8f)), transform.rotation);
         }
     }
 }

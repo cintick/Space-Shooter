@@ -111,4 +111,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2ed9262b515064082b015b4d2b7374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserSpeed: 1
+  laserSpeed: 5
