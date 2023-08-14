@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     private float SpeedMultiplier;
+    [SerializeField]
+    private Transform laserPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         CalculateMovement();
+        PlayerShootLaser();
     }
 
     void CalculateMovement()
@@ -41,5 +44,12 @@ public class Player : MonoBehaviour
         //move player with the speed multipler in horizontal and vertical axises
         transform.Translate(new Vector3(1, 0, 0) * horizontalInput * Time.deltaTime * SpeedMultiplier);
         transform.Translate(new Vector3(0, 1, 0) * verticalInput * Time.deltaTime * SpeedMultiplier);
+    }
+    void PlayerShootLaser()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(laserPrefab, new Vector3(transform.position.x, transform.position.y), transform.rotation);
+        }
     }
 }

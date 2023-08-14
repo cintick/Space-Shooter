@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class LaserSelfMove : MonoBehaviour
+public class LaserSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Transform laserPrefab;
+    public Transform playerPosition;
+
     void Start()
     {
         
