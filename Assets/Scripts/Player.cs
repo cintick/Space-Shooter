@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
     private float SpeedMultiplier;
     [SerializeField]
     private Transform laserPrefab;
+    [SerializeField]
+    private float laserCooldown;
+    private float laserTimer = -1f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,7 @@ public class Player : MonoBehaviour
     {
         CalculateMovement();
         PlayerShootLaser();
+
     }
 
     void CalculateMovement()
@@ -47,9 +51,10 @@ public class Player : MonoBehaviour
     }
     void PlayerShootLaser()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > laserTimer)
         {
             Instantiate(laserPrefab, new Vector3(transform.position.x, (transform.position.y + 0.8f)), transform.rotation);
+            laserTimer = Time.time + laserCooldown;
         }
     }
 }
