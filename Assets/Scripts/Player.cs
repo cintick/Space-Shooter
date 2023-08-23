@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float laserCooldown;
     private float laserTimer = -1f;
+    [SerializeField]
+    private int playerLives = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -56,5 +58,15 @@ public class Player : MonoBehaviour
             Instantiate(laserPrefab, new Vector3(transform.position.x, (transform.position.y + 0.8f)), transform.rotation);
             laserTimer = Time.time + laserCooldown;
         }
+    }
+    
+    public void DamagePlayer()
+    {
+            playerLives--;
+            if (playerLives == 0)
+            {
+            Debug.Log("Game Over, Thanks for Playing");
+            Destroy(this.gameObject);
+            }
     }
 }
