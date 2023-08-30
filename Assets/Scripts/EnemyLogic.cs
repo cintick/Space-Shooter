@@ -14,14 +14,14 @@ public class EnemyLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y > -5.5f)
+        if (transform.position.y > -4.5f)
         {
             transform.Translate(Vector3.down * Time.deltaTime * enemyMoveSpeed);
         }
 
-        if (transform.position.y <= -5.5f)
+        if (transform.position.y <= -4.5f)
         {
-            transform.position = new Vector3(Random.Range(-9.5f, 9.5f), 8f, 0);
+            transform.position = new Vector3(Random.Range(-8.5f, 8.5f), 6f, 0);
         }
     }
 
@@ -35,8 +35,11 @@ public class EnemyLogic : MonoBehaviour
         }
         if (other.CompareTag("Player"))
         {
-            Destroy(GameObject.FindWithTag("Player"));
-            other.transform.GetComponent<Player>().DamagePlayer();
+            Player player = other.transform.GetComponent<Player>();
+            if (player != null)
+            {
+                player.DamagePlayer();
+            }
             Destroy(this.gameObject);
         }
     }

@@ -35,13 +35,13 @@ public class Player : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         // wrap player around in X axis. ( exiting from left of the screen and teleporting right )
-        if (transform.position.x > 11.35)
+        if (transform.position.x > 9.5)
         {
-            transform.position = new Vector3(-11.3f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(-9.5f, transform.position.y, transform.position.z);
         }
-        else if (transform.position.x < -11.35)
+        else if (transform.position.x < -9.5)
         {
-            transform.position = new Vector3(11.3f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(9.5f, transform.position.y, transform.position.z);
         }
 
         // restrict player to only moving between zero and bottom of the screen with Mathf.Clamp
