@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    private GameObject enemyPrefab;
+    [SerializeField]
+    private GameObject enemyContainer;
+    [SerializeField]
+    private float enemySpawnInterval = 5f;
     void Start()
     {
-        
+        StartCoroutine(EnemySpawnRoutine());
     }
 
     // Update is called once per frame
@@ -17,11 +22,25 @@ public class EnemySpawner : MonoBehaviour
     }
 
     //IEnumerator EnemySpawnRoutine()
-    {
+    
         //while loop
-            //instantiate enemy prefab at random X between -8.5f and 8.5f
-            //yield wait enemyspawnrate seconds
+            //instantiate enemy prefab at random X between -8.5f and 8.5f , Y = 6.5 , Z = 0
+            //yield wait enemyspawninterval seconds
+
+    IEnumerator EnemySpawnRoutine()
+    {
+        while (true)
+        {
+            if (enemyContainer.transform.childCount < 10)
+            {
+                GameObject instantiatedEnemy = Instantiate(enemyPrefab, new Vector3(Random.Range(-8.5f, 8.5f), 6f, 0), transform.rotation);
+                instantiatedEnemy.transform.parent = enemyContainer.transform;
+                yield return new WaitForSeconds(enemySpawnInterval);
+            }
+            yield return new WaitForSeconds(1f);
+        }
     }
+    
 
 
 }
