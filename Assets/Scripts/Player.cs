@@ -14,11 +14,18 @@ public class Player : MonoBehaviour
     private float laserTimer = -1f;
     [SerializeField]
     private int playerLives = 3;
+    [SerializeField]
+    private EnemySpawner enemySpawner;
 
     // Start is called before the first frame update
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
+        enemySpawner = GameObject.Find("EnemySpawnManager").GetComponent<EnemySpawner>();
+        if (enemySpawner == null)
+        {
+            Debug.LogError("Enemy Spawn Manager Is NULL!");
+        }
     }
 
     // Update is called once per frame
@@ -45,7 +52,7 @@ public class Player : MonoBehaviour
         }
 
         // restrict player to only moving between zero and bottom of the screen with Mathf.Clamp
-        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.85f, 0), 0);
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.5f, 0), 0);
 
         //move player with the speed multipler in horizontal and vertical axises
         transform.Translate(new Vector3(1, 0, 0) * horizontalInput * Time.deltaTime * SpeedMultiplier);
@@ -66,6 +73,10 @@ public class Player : MonoBehaviour
             if (playerLives == 0)
             {
             Debug.Log("Game Over, Thanks for Playing");
+            if (enemySpawner != null)
+            {
+                enemySpawner.OnPlayerDeath();
+            }
             Destroy(this.gameObject);
             }
     }

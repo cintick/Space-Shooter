@@ -10,6 +10,8 @@ public class EnemySpawner : MonoBehaviour
     private GameObject enemyContainer;
     [SerializeField]
     private float enemySpawnInterval = 5f;
+    [SerializeField]
+    private bool playerIsAlive = true;
     void Start()
     {
         StartCoroutine(EnemySpawnRoutine());
@@ -18,18 +20,18 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //IEnumerator EnemySpawnRoutine()
-    
-        //while loop
-            //instantiate enemy prefab at random X between -8.5f and 8.5f , Y = 6.5 , Z = 0
-            //yield wait enemyspawninterval seconds
+
+    //while loop
+    //instantiate enemy prefab at random X between -8.5f and 8.5f , Y = 6.5 , Z = 0
+    //yield wait enemyspawninterval seconds
 
     IEnumerator EnemySpawnRoutine()
     {
-        while (true)
+        while (playerIsAlive)
         {
             if (enemyContainer.transform.childCount < 10)
             {
@@ -40,7 +42,11 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }
-    
+
+    public void OnPlayerDeath()
+        {
+        playerIsAlive = false;
+        }
 
 
 }
