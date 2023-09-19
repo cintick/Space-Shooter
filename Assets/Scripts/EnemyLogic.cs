@@ -25,7 +25,7 @@ public class EnemyLogic : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Hit" + other.transform.name);
         if (other.CompareTag("Laser"))
