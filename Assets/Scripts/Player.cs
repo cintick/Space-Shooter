@@ -8,7 +8,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float SpeedMultiplier;
     [SerializeField]
-    private Transform laserPrefab;
+    private GameObject laserPrefab;
+    [SerializeField]
+    private GameObject tripleLaserPrefab;
     [SerializeField]
     private float laserCooldown;
     private float laserTimer = -1f;
@@ -16,6 +18,8 @@ public class Player : MonoBehaviour
     private int playerLives = 3;
     [SerializeField]
     private EnemySpawner enemySpawner;
+    [SerializeField]
+    private bool TripleShotActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +66,15 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > laserTimer)
         {
-            Instantiate(laserPrefab, new Vector3(transform.position.x, (transform.position.y + 0.8f)), transform.rotation);
+            if (TripleShotActive)
+            {
+                Instantiate(tripleLaserPrefab, new Vector3(transform.position.x, (transform.position.y + 0.8f), 0), transform.rotation);
+            }
+            else 
+            {
+                Instantiate(laserPrefab, new Vector3(transform.position.x, (transform.position.y + 0.8f), 0), transform.rotation);
+            }
+            
             laserTimer = Time.time + laserCooldown;
         }
     }

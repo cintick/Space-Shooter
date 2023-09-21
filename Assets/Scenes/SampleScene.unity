@@ -353,7 +353,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -498,10 +498,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedMultiplier: 6
-  laserPrefab: {fileID: 9156064161547477533, guid: 2bd5c7bc16e0ff846a42287bbae2e872, type: 3}
+  laserPrefab: {fileID: 9156064161547477510, guid: 2bd5c7bc16e0ff846a42287bbae2e872, type: 3}
+  tripleLaserPrefab: {fileID: 8315663729076623062, guid: 598320c74eece344d92df3f2e84667b3, type: 3}
   laserCooldown: 0.15
   playerLives: 3
   enemySpawner: {fileID: 1463620179}
+  TripleShotActive: 0
 --- !u!212 &2046792430
 SpriteRenderer:
   m_ObjectHideFlags: 0
