@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int playerLives = 3;
     [SerializeField]
+    private int powerupTimeLenght = 10;
+    [SerializeField]
     private EnemySpawner enemySpawner;
     [SerializeField]
     private bool TripleShotActive = false;
@@ -92,4 +94,15 @@ public class Player : MonoBehaviour
             Destroy(this.gameObject);
             }
     }
+    public void ActivateTripleShot()
+    {
+        StartCoroutine(PowerupTimerRoutine());
+    }
+    IEnumerator PowerupTimerRoutine()
+    {
+        TripleShotActive = true;
+        yield return new WaitForSeconds(powerupTimeLenght);
+        TripleShotActive = false;
+    }
+
 }

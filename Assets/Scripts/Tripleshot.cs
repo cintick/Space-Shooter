@@ -6,7 +6,7 @@ public class Tripleshot : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
-
+    private float powerupSpeed=3;
     void Start()
     {
         
@@ -15,13 +15,25 @@ public class Tripleshot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.y > -5)
+        {
+            transform.Translate(Vector3.down * Time.deltaTime * powerupSpeed);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-
+            Player player = other.transform.GetComponent<Player>();
+            if (player != null)
+            {
+                player.ActivateTripleShot();
+            }
+            Destroy(this.gameObject);
         }
     }
 }
