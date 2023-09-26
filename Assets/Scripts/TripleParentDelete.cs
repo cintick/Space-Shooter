@@ -13,9 +13,6 @@ public class TripleParentDelete : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.childCount == 0)
-        {
-            Destroy(gameObject);
-        }
+
     }
 }

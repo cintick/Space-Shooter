@@ -28,10 +28,10 @@ public class Tripleshot : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Player player = other.transform.GetComponent<Player>();
-            if (player != null)
+            Player _player = other.transform.GetComponent<Player>();
+            if (_player != null)
             {
-                player.ActivateTripleShot();
+                _player.ActivateTripleShot();
             }
             Destroy(this.gameObject);
         }
