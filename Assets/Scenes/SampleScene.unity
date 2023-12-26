@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -418,6 +418,7 @@ MonoBehaviour:
   enemyContainer: {fileID: 1992631174}
   enemySpawnInterval: 3
   playerIsAlive: 1
+  tripleshotPowerUp: {fileID: 882023657004202359, guid: d412216c04187cc4fae7c7ed78a21c53, type: 3}
 --- !u!4 &1463620180
 Transform:
   m_ObjectHideFlags: 0

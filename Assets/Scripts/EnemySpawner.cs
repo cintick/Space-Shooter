@@ -12,9 +12,12 @@ public class EnemySpawner : MonoBehaviour
     private float enemySpawnInterval = 5f;
     [SerializeField]
     private bool playerIsAlive = true;
+    [SerializeField]
+    private GameObject tripleshotPowerUp;
     void Start()
     {
         StartCoroutine(EnemySpawnRoutine());
+        StartCoroutine(PowerupSpawnRoutine());
     }
 
     // Update is called once per frame
@@ -40,6 +43,15 @@ public class EnemySpawner : MonoBehaviour
                 yield return new WaitForSeconds(enemySpawnInterval);
             }
             yield return new WaitForSeconds(1f);
+        }
+    }
+
+    IEnumerator PowerupSpawnRoutine()
+    {
+        while (playerIsAlive)
+        {
+            yield return new WaitForSeconds(7f);
+            GameObject instantiatedPowerup = Instantiate(tripleshotPowerUp, new Vector3(Random.Range(-8.5f, 8.5f), 6f, 0), transform.rotation);
         }
     }
 
