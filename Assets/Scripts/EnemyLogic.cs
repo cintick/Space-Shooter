@@ -11,7 +11,7 @@ public class EnemyLogic : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (transform.position.y > -4.5f)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LaserSelfMove : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     [SerializeField]
     private float laserSpeed;
     void Start()
@@ -12,7 +12,7 @@ public class LaserSelfMove : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         transform.Translate (Vector3.up * Time.deltaTime * laserSpeed);

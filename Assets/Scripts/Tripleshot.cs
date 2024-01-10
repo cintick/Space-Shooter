@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Tripleshot : MonoBehaviour
 {
-    // Start is called before the first frame update
+
     [SerializeField]
     private float powerupSpeed=3;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (transform.position.y > -5)

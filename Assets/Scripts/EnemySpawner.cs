@@ -26,11 +26,7 @@ public class EnemySpawner : MonoBehaviour
 
     }
 
-    //IEnumerator EnemySpawnRoutine()
-
-    //while loop
-    //instantiate enemy prefab at random X between -8.5f and 8.5f , Y = 6.5 , Z = 0
-    //yield wait enemyspawninterval seconds
+    
 
     IEnumerator EnemySpawnRoutine()
     {
